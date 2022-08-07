@@ -35,6 +35,9 @@ class _PlayscreenState extends State<Playscreen> {
             Row(
               children: [
                 ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    primary: Colors.green,
+                  ),
                   onPressed: increments,
                   child: Text("เพิ่มค่า"), 
                   ),
