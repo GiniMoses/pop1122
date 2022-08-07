@@ -9,6 +9,18 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  String name = "Parinya Yartsomboon";
+  int age = 12;
+
+  bool lookinggood = true;
+  List<String> myDongnames = ["loongtoo", "paveena", "mike", "Pravit"];
+  Map<String, dynamic> user = {
+    "id": 1,
+    "name": "John Olsen",
+    "sex": "male",
+    "married": false,
+  };
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
