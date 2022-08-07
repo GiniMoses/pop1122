@@ -55,6 +55,10 @@ class _PlayscreenState extends State<Playscreen> {
                   children: [
                     TextFormField(
                       controller: namecontroller,
+                      decoration: InputDecoration(
+                        
+                        hintText: "ชื่อ-สกุล" ,
+                        label: Text("ชื่อ-สกุล",)),
                     ),
                   ],
                 ),
@@ -73,10 +77,8 @@ class _PlayscreenState extends State<Playscreen> {
                   style: ElevatedButton.styleFrom(
                     primary: Colors.red,
                   ),
-                  onPressed: () {
-                    changename();
-                  },
-                  child: Text("ชื่อ"),
+                  onPressed: changename ,
+                  child: Text("เปลี่ยนชื่อ"),
                 ),
                 ElevatedButton(
                   style: ElevatedButton.styleFrom(
