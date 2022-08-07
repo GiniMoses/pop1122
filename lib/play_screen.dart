@@ -13,28 +13,27 @@ class Playscreen extends StatefulWidget {
 
 class _PlayscreenState extends State<Playscreen> {
   int number = 0;
-  String name = "Parinya ";
 
-  void increments(){
+  String name = "Parinya Yartsomboon";
+
+  TextEditingController namecontroller = TextEditingController();
+
+  void increments() {
     setState(() {
-      number +=1;
+      number += 1;
     });
-    
-    
   }
 
-  void decrements(){
+  void decrements() {
     setState(() {
-      number -=1;
+      number -= 1;
     });
-    
-}
-  void changename(String newname){
-    setState(() {
-      name = newname;
-  });
- 
+  }
 
+  void changename() {
+    setState(() {
+      name = namecontroller.text;
+    });
   }
 
   @override
@@ -44,12 +43,23 @@ class _PlayscreenState extends State<Playscreen> {
         title: Text("PlayScreen"),
       ),
       body: Container(
-        child:  
-        Column(
+        child: Column(
           children: [
             Text("ค่าปัจจุบัน : ${number}"),
             Text("ชื่อ : ${name}"),
             Text("ค่าปัจจุบัน : ${number}"),
+            Container(
+              padding: EdgeInsets.all(10),
+              child: Form(
+                child: Column(
+                  children: [
+                    TextFormField(
+                      controller: namecontroller,
+                    ),
+                  ],
+                ),
+              ),
+            ),
             Row(
               children: [
                 ElevatedButton(
@@ -57,24 +67,26 @@ class _PlayscreenState extends State<Playscreen> {
                     primary: Colors.green,
                   ),
                   onPressed: increments,
-                  child: Text("เพิ่มค่า"), 
+                  child: Text("เพิ่มค่า"),
+                ),
+                ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    primary: Colors.red,
                   ),
-                  ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                      primary: Colors.red,
-                    ),
-                  onPressed: (){changename("Parinya คนชอบหี อ่าส์เงี่ยน");},
-                  child: Text("ชื่อ"), 
+                  onPressed: () {
+                    changename();
+                  },
+                  child: Text("ชื่อ"),
+                ),
+                ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    primary: Colors.yellow,
                   ),
-                   ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                      primary: Colors.yellow,
-                    ),
                   onPressed: decrements,
-                  child: Text("ลดค่า"), 
-                  ),
-                 
-            ],),
+                  child: Text("ลดค่า"),
+                ),
+              ],
+            ),
           ],
         ),
       ),
