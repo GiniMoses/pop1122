@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pop1122/home_screen.dart';
+import 'package:pop1122/play_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -15,7 +16,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const HomeScreen(),
+      home: const Playscreen(),
     );
   }
 }

@@ -11,12 +11,11 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   String name = "Parinya Yartsomboon";
   int age = 12;
-
-  bool lookinggood = true;
-  List<String> myDongnames = ["loongtoo", "paveena", "mike", "Pravit"];
+  bool lookingGood = true;
+  List<String> myDognames = ["joey", "jakson", "male", "james"];
   Map<String, dynamic> user = {
     "id": 1,
-    "name": "John Olsen",
+    "name": "คนชอบหี",
     "sex": "male",
     "married": false,
   };
@@ -29,14 +28,15 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
       body: Center(
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text(" สวัสดีสมาชิกคนชอบหี  $name"),
-            Text(" ฉันอยากมีอายุ $age "),
-            Text(" ฉันหล่อมากนั้นเป็นเรื่อง ${lookinggood ? "จริง" : "ไม่จริง"} "),
-            Text(" หมาฉันชื่อ ${myDongnames[0]},${myDongnames[1]},${myDongnames[2]},และ :
-             "หมาฉันชื่อ ${myDongnames.map((item) => Text(item)).toList()})"",
-            Text("เพื่อนของฉัน :  ${user["name"]} "),
-            Text("แล้วเขาก็ :  ${user["married"]? "แต่งงาน" : "ยังไมไ่ด้แต่งงาน" }"),
+            Text("Hello $name"),
+            Text("My age $age years old"),
+            Text("My looking good is ${lookingGood ? "yes" : "no"}"),
+            Text("My dog name is ${myDognames[1]}"),
+            // ...myDognames.map((e) => Text(e)).toList(),
+            Text("My friend  name is ${user["name"]}"),
+            Text("She is ${user["married"] ? "married" : "no married"}"),
             ElevatedButton(
               onPressed: () => {
                 Navigator.of(context).push(
@@ -50,8 +50,8 @@ class _HomeScreenState extends State<HomeScreen> {
               child: Text("Go to about screen"),
             ),
           ],
-          ),
         ),
-      );
+      ),
+    );
   }
 }
