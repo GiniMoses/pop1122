@@ -1,3 +1,5 @@
+import 'dart:html';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
@@ -11,15 +13,29 @@ class Playscreen extends StatefulWidget {
 
 class _PlayscreenState extends State<Playscreen> {
   int number = 0;
+  String name = "Parinya ";
 
   void increments(){
-    number +=1;
+    setState(() {
+      number +=1;
+    });
+    
     
   }
 
   void decrements(){
-    number -=1;
+    setState(() {
+      number -=1;
+    });
+    
 }
+  void changename(String newname){
+    setState(() {
+      name = newname;
+  });
+ 
+
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -31,6 +47,8 @@ class _PlayscreenState extends State<Playscreen> {
         child:  
         Column(
           children: [
+            Text("ค่าปัจจุบัน : ${number}"),
+            Text("ชื่อ : ${name}"),
             Text("ค่าปัจจุบัน : ${number}"),
             Row(
               children: [
@@ -45,7 +63,14 @@ class _PlayscreenState extends State<Playscreen> {
                     style: ElevatedButton.styleFrom(
                       primary: Colors.red,
                     ),
-                  onPressed: increments,
+                  onPressed: (){changename("Parinya คนชอบหี อ่าส์เงี่ยน");},
+                  child: Text("ชื่อ"), 
+                  ),
+                   ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      primary: Colors.yellow,
+                    ),
+                  onPressed: decrements,
                   child: Text("ลดค่า"), 
                   ),
                  
